@@ -31,7 +31,7 @@ def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
     If @first and @second is the same object should return True
     In another case should return False
     """
-    return id(first) == id(second)
+    return first is second
 
 
 def multiple_ints(first_value: int, second_value: int) -> int:
@@ -74,7 +74,7 @@ def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
     """
     try:
         return int(first_value) * int(second_value)
-    except:
+    except Exception:
         raise ValueError
 
 
@@ -94,15 +94,14 @@ def is_word_in_text(word: str, text: str) -> bool:
         >>> False
 
     """
-    return text.find(word) > -1
+    return word in text
 
 
 def some_loop_exercise() -> list:
     """
     Use loop to create list that contain int values from 0 to 12 except 6 and 7
     """
-    l = [x for x in range(0, 13) if x not in [6, 7]]
-    return l
+    return [x for x in range(0, 13) if x not in [6, 7]]
 
 
 def remove_from_list_all_negative_numbers(data: List[int]) -> list:
@@ -114,17 +113,16 @@ def remove_from_list_all_negative_numbers(data: List[int]) -> list:
         remove_from_list_all_negative_numbers([1, 5, -7, 8, -1])
         >>> [1, 5, 8]
     """
-    l = [x for x in data if x >= 0]
-    return l
+    return [x for x in data if x >= 0]
 
 
 def alphabet() -> dict:
     """
-    Create dict which keys is alphabetic characters. And values their number in alphabet
+    Create dict which keys is numbers staring from 1. And values are alphabetic characters corresponding to the number.
     Notes You could see an implementaion of this one in test, but create another one
     Examples:
         alphabet()
-        >>> {"a": 1, "b": 2 ...}
+        >>> {"1": a, "2": b ...}
     """
     alph = {}
     n = 1
