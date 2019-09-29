@@ -16,15 +16,10 @@ def task_1_add_new_record_to_db(con) -> None:
     Args:
         con: psycopg connection
 
-    Returns: 92 records
-
     """
     with con.cursor() as cursor:
         cursor.execute("INSERT INTO Customers(customername, contactname, address, city, postalcode, country) VALUES ('Thomas', 'David', 'Some Address', 'London', '774', 'Singapore');")
-        cursor.execute("SELECT * FROM Customers") 
-        return cursor.fetchall()
-
-
+        
 def task_2_list_all_customers(cur) -> list:
     """
     Get all records from table Customers
