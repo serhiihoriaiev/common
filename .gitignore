@@ -1,0 +1,14 @@
+hw/
+.vscode/settings.json
+git/__pycache__/homework.cpython-36.pyc
+git/__pycache__/
+relational_database/__pycache__/
+relational_database/fixtures/__pycache__/
+.vscode/launch.json
+relational_database/db_utils.py
+relational_database/init_database.py
+hw_workspace.code-workspace
+relational_database/tests.py
+relational_database/proto.py
+.idea/
+
