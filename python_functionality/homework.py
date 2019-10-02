@@ -15,10 +15,7 @@ def task_1_fix_names_start_letter(data: DT) -> DT:
         fix_names_start_letters([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}])
         >>> [{'name': 'Alex', 'age': 26}, {'name': 'Denys', 'age': 89}]
     """
-    for _dict in data:
-        if "name" in _dict.keys():
-            _dict["name"] = _dict["name"].capitalize()
-    return data
+    return [{key: value.capitalize() if key == "name" else value for key, value in _dict.items() } for _dict in data]
 
 
 def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
@@ -29,11 +26,7 @@ def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
        remove_dict_field([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 'age')
         >>> [{'name': 'Alex'}, {'name': 'denys'}]
     """
-    for _dict in data:
-        for rkey in redundant_keys:
-            if rkey in _dict.keys():
-                del _dict[rkey]
-    return data
+    return [{key:value for key, value in _dict.items() if key not in redundant_keys} for _dict in data]
 
 
 def task_3_find_item_via_value(data: DT, value) -> DT:
@@ -43,11 +36,7 @@ def task_3_find_item_via_value(data: DT, value) -> DT:
         find_item_via_value([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 26)
         >>> [{'name': 'Alex', 'age': 26}]
     """
-    result = []
-    for _dict in data:
-        if value in _dict.values():
-            result.append(_dict)
-    return result
+    return [{key:v for key, v in _dict.items()} for _dict in data if value in _dict.values()]
 
 
 def task_4_min_value_integers(data: List[int]) -> int:
