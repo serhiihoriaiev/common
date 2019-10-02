@@ -11,4 +11,5 @@ hw_workspace.code-workspace
 relational_database/tests.py
 relational_database/proto.py
 .idea/
-
+python_functionality/__pycache__/
+python_functionality/proto.py
