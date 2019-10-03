@@ -51,13 +51,9 @@ def task_5_min_value_strings(data: List[Union[str, int]]) -> str:
     Find the shortest string
     """
     if len(data) > 0:
-        sh = data[0]
-        for word in data:
-            if len(str(word)) < len(sh):
-                sh = str(word)
-        return sh 
+        return str(sorted(data, key = lambda x: len(str(x)))[0])
     else:
-        return None   
+        return None 
 
 
 def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
@@ -66,25 +62,14 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     Returns:
 
     """
-    if len(data) > 0:
-        mini = data[0]
-        for _dict in data:
-            if key in _dict.keys():
-                if _dict[key] < mini[key]:
-                    mini = _dict
-        return mini
+    return min((_dict for _dict in data if key in _dict.keys()), key = lambda x: x[key])
 
 
 def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
     """
     Find max value from list of lists
     """
-    arr = (a for a in data)
-    res_arr = []
-    for a in arr:
-        if len(a) > 0:
-            res_arr.append(max(a))
-    return max(res_arr)
+    return max([max(arr) for arr in data if len(arr) > 0])
 
 
 def task_8_sum_of_ints(data: List[int]) -> int:
@@ -107,10 +92,7 @@ def task_9_sum_characters_positions(text: str) -> int:
         >>> 532
 
     """
-    result = 0
-    for ch in text:
-        result += ord(ch)
-    return result
+    return sum([ord(x) for x in text])
 
 def task_10_generator_of_simple_numbers() -> Generator[int, None, None]:
     """
