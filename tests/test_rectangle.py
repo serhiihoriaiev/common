@@ -58,5 +58,14 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             test_obj.get_radius_of_circumscribed_circle()
 
+    def test_inscribed_circle(self):
+        test_obj = Rectangle(6, 6)
+        self.assertEqual(test_obj.get_radius_of_inscribed_circle(), 3)
+
+    def test_iscribed_circle(self):
+        test_obj = Rectangle(6, 16)
+        with self.assertRaises(ValueError):
+            test_obj.get_radius_of_inscribed_circle()
+
 if __name__ == "__main__":
     unittest.main()
