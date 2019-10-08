@@ -62,7 +62,7 @@ class TestRectangle(unittest.TestCase):
         test_obj = Rectangle(6, 6)
         self.assertEqual(test_obj.get_radius_of_inscribed_circle(), 3)
 
-    def test_iscribed_circle(self):
+    def test_inscribed_circle_bad_input(self):
         test_obj = Rectangle(6, 16)
         with self.assertRaises(ValueError):
             test_obj.get_radius_of_inscribed_circle()
