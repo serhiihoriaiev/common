@@ -42,7 +42,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_rectangle_diagonal(self):
         test_obj = Rectangle(13, 6)
-        self.assertEqual(test_obj.get_rectangle_diagonal(), 14.32)
+        self.assertAlmostEqual(test_obj.get_rectangle_diagonal(), 14.32, 2)
 
     def test_rectangle_diagonal_wrong_data(self):
         test_obj = Rectangle(13, "6")
@@ -51,7 +51,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_circumscribed_circle(self):
         test_obj = Rectangle(13, 6)
-        self.assertEqual(test_obj.get_radius_of_circumscribed_circle(), 7.16)
+        self.assertAlmostEqual(test_obj.get_radius_of_circumscribed_circle(), 7.16, 2)
 
     def test_circumscribed_circle_wrong_data(self):
         test_obj = Rectangle([13, ], 6)
