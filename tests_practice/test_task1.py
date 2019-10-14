@@ -1,7 +1,7 @@
 import unittest
-import sys
 from unittest.mock import patch
 from tests_practice.task1 import *
+
 
 class Test(unittest.TestCase):
 
@@ -29,8 +29,9 @@ class Test(unittest.TestCase):
             self.assertEqual(task_4_sum_digits(i), j)
 
     def test_push_zeros(self):
+        test_arr = [0, 2, 3, 4, 6, 7, 10]
         expected_result = [2, 3, 4, 6, 7, 10, 0]
-        self.assertEqual(task_5_push_zeros([0,2,3,4,6,7,10]), [2, 3, 4, 6, 7, 10, 0])
+        self.assertEqual(task_5_push_zeros(test_arr), expected_result)
 
     def test_is_arith_progression(self):
         test_arr = [5, 7, 9, 11]
@@ -42,12 +43,12 @@ class Test(unittest.TestCase):
         self.assertEqual(task_7_single_number(test_arr), expected_result)
 
     def test_missing(self):
-        test_arr = [1,2,3,4,6,7,8]
+        test_arr = [1, 2, 3, 4, 6, 7, 8]
         expected_result = 5
         self.assertEqual(task_8_missing(test_arr), expected_result)
 
     def test_count_not_tuples(self):
-        test_arr = [1,2,3,(1,2),3]
+        test_arr = [1, 2, 3, (1, 2), 3]
         expected_result = 3
         self.assertEqual(task_9_count_not_tuples(test_arr), expected_result)
 
@@ -65,16 +66,16 @@ class Test(unittest.TestCase):
         for sentence, word in zip(["fun&!! time", "I love dogs"], ["time", "love"]):
             self.assertEqual(task_12_largest_word(sentence), word)
 
-    def test_reverse_sentence(self): #, mock_input, mock_print
+    def test_reverse_sentence(self):
         user_input = "My name is Michele"
         expected_result = "Michele is name My"
-        with patch('builtins.input', return_value = user_input):
+        with patch('builtins.input', return_value=user_input):
             self.assertEqual(task_13_reverse_sentence(), expected_result)
 
     def test_fibonacci(self):
         user_input = "7"
         expected_result = [1, 1, 2, 3, 5, 8, 13]
-        with patch('builtins.input', return_value = user_input):
+        with patch('builtins.input', return_value=user_input):
             self.assertEqual(task_14_fibonacci(), expected_result)
 
     def test_even_filter(self):
@@ -85,7 +86,7 @@ class Test(unittest.TestCase):
     def test_sum_numbers(self):
         user_input = "4"
         expected_result = 10
-        with patch('builtins.input', return_value = user_input):
+        with patch('builtins.input', return_value=user_input):
             self.assertEqual(task_16_sum_numbers(), expected_result)
 
     def test_factorial(self):
@@ -106,6 +107,7 @@ class Test(unittest.TestCase):
     def test_comparing(self):
         for params, expected_result in zip([[1, 5], [5, 1], [3, 3]], [True, False, -1]):
             self.assertEqual(task_20_comparing(params[0], params[1]), expected_result)
+
 
 if __name__ == "__main__":
     unittest.main()
