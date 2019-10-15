@@ -229,10 +229,9 @@ class House:
 
         if width == 0 or height == 0:
             raise ValueError("Value must be not 0")
-        else:
-            if len(self.__walls) == 4:
-                raise ValueError("Our house can not have more than 4 walls")
-            self.__walls.append(Wall(width, height))
+        if len(self.__walls) == 4:
+            raise ValueError("Our house can not have more than 4 walls")
+        self.__walls.append(Wall(width, height))
 
     def create_roof(self, width, height, roof_type):
         """
