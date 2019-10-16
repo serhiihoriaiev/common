@@ -14,3 +14,5 @@ relational_database/proto.py
 python_functionality/__pycache__/
 python_functionality/proto.py
 oop/__pycache__/
+tests_practice/.idea
+
