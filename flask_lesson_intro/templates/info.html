@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block styles %}
+     #images {
+        float: left;
+     }
+     #info-text{
+        font: 14pt sans-serif;
+    }
+    #count{
+        color: grey;
+    }
+{% endblock %}
+
+{% block info %}
+<h1 class="main-header">{{ info['title'] }}</h1>
+<br>
+<br>
+<div id="images">
+    <img src="{{url_for('static', filename=gadget.lower()) + '.jpg'}}" hspace="15">
+</div>
+<div id="info-text" hspace="15">
+    <p>{{ info['text'] }}</p>
+    <p id="count">The description above contains {{ info['text'].split() | length() }} words.</p>
+</div>
+{% endblock %}
