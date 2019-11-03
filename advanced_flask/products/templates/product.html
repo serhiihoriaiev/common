@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}<title>{{ product['name'] }} - Overview</title>{% endblock %}
+
+{% block styles %}
+     #images {
+        float: left;
+     }
+     #info-text{
+        font: 14pt sans-serif;
+    }
+    footer {
+      clear:both;
+    }
+    #wrap {
+        min-height: 60%;
+    }
+{% endblock %}
+
+{% block links %}
+    <li class="nav-item active">
+        <a class="nav-link" href="{{url_for('get_home')}}">Home
+        </a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{url_for('products.get_prod_list')}}">Products
+        </a>
+    </li>
+{% endblock %}
+
+{% block info %}
+<h1 class="main-header">{{ product['name'] }}</h1>
+<br>
+<br>
+<div id="images">
+    <img src="{{url_for('products.static', filename=product['img_name'])}}" hspace="15" width="357" height="500">
+</div>
+<div id="info-text" hspace="15">
+    <p>{{ product['description'] }}</p><br>
+    <p style="font: 16pt sans-serif; color: red;">${{ product['price'] }}</p>
+
+</div>
+{% endblock %}

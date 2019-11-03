@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    .main-link{
+        margin-left: 3%;
+    }
+
+    footer {
+      clear:both;
+    }
+
+    #wrap {
+        min-height: 60%;
+    }
+{% endblock %}
+
+{% block links %}
+    <li class="nav-item inactive">
+        <a class="nav-link" href="{{url_for('get_home')}}">Home
+        <span class="sr-only">(current)</span>
+        </a>
+    </li>
+{% endblock %}
+
+{% block info %}
+    <h1 class="main-header">Advanced Flask Homework</h1><br>
+    <a class="main-link" href="{{url_for('products.get_prod_list')}}">Products</a><br>
+    <a class="main-link" href="/supermarkets">Supermarkets</a>
+{% endblock %}
