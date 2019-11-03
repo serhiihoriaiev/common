@@ -17,17 +17,6 @@
     }
 {% endblock %}
 
-{% block links %}
-    <li class="nav-item active">
-        <a class="nav-link" href="{{url_for('get_home')}}">Home
-        </a>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link" href="{{url_for('products.get_prod_list')}}">Products
-        </a>
-    </li>
-{% endblock %}
-
 {% block info %}
 <h1 class="main-header">{{ product['name'] }}</h1>
 <br>

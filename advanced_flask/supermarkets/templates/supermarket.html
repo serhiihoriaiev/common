@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}<title>{{ supermarket['name'] }} - Overview</title>{% endblock %}
+
+{% block styles %}
+     #images {
+        text-align: center;
+     }
+     #info-text{
+        font: 14pt sans-serif;
+    }
+    footer {
+      clear:both;
+    }
+    #wrap {
+        min-height: 60%;
+    }
+{% endblock %}
+
+{% block info %}
+<h1 class="main-header">{{ supermarket['name'] }}</h1>
+<br>
+<br>
+<div id="images">
+    <img src="{{url_for('supermarkets.static', filename=supermarket['img_name'])}}" hspace="15">
+</div>
+{% endblock %}

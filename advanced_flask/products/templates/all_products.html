@@ -20,7 +20,11 @@
     <h1 class="main-header">List of all products</h1><br>
     <ul>
     {% for product in data %}
-        <li><a class="main-link" href="{{url_for('products.get_product', prod_id=product['id'])}}">{{product['name']}}</a><br></li>
+        {% if session[product['name']] %}
+            <li><p style="margin-left: 3%;">{{product['name']}}</p></li>
+        {% else %}
+            <li><a class="main-link" href="{{url_for('products.get_product', prod_id=product['id'])}}">{{product['name']}}</a><br></li>
+        {% endif %}
     {% endfor %}
     </ul><br>
     <div style="text-align: center;" ><a href="{{url_for('products.add_prod_form')}}">Add new product</a></div>

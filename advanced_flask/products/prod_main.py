@@ -1,7 +1,7 @@
 import os
 import re
 
-from flask import Blueprint, render_template, redirect, current_app, request
+from flask import Blueprint, render_template, redirect, current_app, request, session
 from werkzeug.utils import secure_filename
 from advanced_flask.products.initialize import product_list
 from advanced_flask.products.form import AddForm
@@ -16,17 +16,18 @@ def get_prod_list():
         key = re.match('^(.+)=', request.query_string.decode('utf-8')).group(1)
         value = request.args.get(key)
         data = [pr for pr in product_list if pr[key] == value]
-        return render_template('all_products.html', data=data)
-    return render_template('all_products.html', data=product_list)
+        return render_template('all_products.html', data=data, sess=session)
+    return render_template('all_products.html', data=product_list, sess=session)
 
 
 @prod.route('/product/<prod_id>')
 def get_product(prod_id):
     product = [pr for pr in product_list if pr['id'] == prod_id][0]
+    session[product['name']] = True
     return render_template('product.html', product=product)
 
 
-@prod.route('/add', methods=['GET', 'POST'])
+@prod.route('/add_product', methods=['GET', 'POST'])
 def add_prod_form():
     add_form = AddForm()
     #  check if form submitted

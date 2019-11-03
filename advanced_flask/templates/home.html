@@ -14,16 +14,9 @@
     }
 {% endblock %}
 
-{% block links %}
-    <li class="nav-item inactive">
-        <a class="nav-link" href="{{url_for('get_home')}}">Home
-        <span class="sr-only">(current)</span>
-        </a>
-    </li>
-{% endblock %}
-
 {% block info %}
     <h1 class="main-header">Advanced Flask Homework</h1><br>
     <a class="main-link" href="{{url_for('products.get_prod_list')}}">Products</a><br>
-    <a class="main-link" href="/supermarkets">Supermarkets</a>
+    <a class="main-link" href="{{url_for('supermarkets.get_sup_list')}}">Supermarkets</a><br><br>
+    <a class="main-link" href="{{url_for('restart_session')}}">Restart session</a>
 {% endblock %}
