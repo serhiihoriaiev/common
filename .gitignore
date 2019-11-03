@@ -16,4 +16,5 @@ python_functionality/proto.py
 oop/__pycache__/
 tests_practice/.idea
 flask_lesson_intro/__pycache__/
-
+advanced_flask/supermarkets/__pycache__/
+advanced_flask/products/__pycache__/
