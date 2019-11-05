@@ -18,3 +18,5 @@ tests_practice/.idea
 flask_lesson_intro/__pycache__/
 advanced_flask/supermarkets/__pycache__/
 advanced_flask/products/__pycache__/
+advanced_flask/__pycache__/
+
