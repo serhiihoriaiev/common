@@ -1,7 +1,7 @@
 from flask import Flask, render_template, session
 
-from advanced_flask.products.prod_main import prod
-from advanced_flask.supermarkets.super_main import sup
+from products.prod_main import prod
+from supermarkets.super_main import sup
 
 app = Flask(__name__)
 app.config.from_object('config')

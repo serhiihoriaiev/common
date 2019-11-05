@@ -19,8 +19,9 @@
 
 {% block info %}
 <h1 class="main-header">{{ supermarket['name'] }}</h1>
+<p style="margin-left: 5%;">{{ supermarket['location'] }}</p>
 <br>
-<br>
+
 <div id="images">
     <img src="{{url_for('supermarkets.static', filename=supermarket['img_name'])}}" hspace="15">
 </div>

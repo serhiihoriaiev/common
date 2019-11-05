@@ -3,18 +3,18 @@ import re
 
 from flask import Blueprint, render_template, redirect, current_app, request, session
 from werkzeug.utils import secure_filename
-from advanced_flask.supermarkets.initialize import supermarket_list
-from advanced_flask.supermarkets.form import AddForm
+from supermarkets.initialize import supermarket_list
+from supermarkets.form import AddForm
 
 sup = Blueprint('supermarkets', __name__, template_folder='templates', static_folder='static_sup')
 
 
-@sup.route('/supermarkets')
+@sup.route('/supermarket')
 def get_sup_list():
     if request.query_string:
         #  get the name of parameter from query string
         key = re.match('^(.+)=', request.query_string.decode('utf-8')).group(1)
-        value = request.args.get(key)
+        value = request.args.get(key)[1:-1]  # slice to delete quotes
         data = [sup for sup in supermarket_list if sup[key].lower() == value.lower()]
         return render_template('all_supermarkets.html', data=data, sess=session)
     return render_template('all_supermarkets.html', data=supermarket_list, sess=session)
@@ -43,5 +43,5 @@ def add_sup_form():
             'img_name': secure_filename(img.filename) if img else ''
         }
         supermarket_list.append(data)
-        return redirect('/supermarkets')
+        return redirect('/supermarket')
     return render_template("add_supermarket.html", form=add_form)

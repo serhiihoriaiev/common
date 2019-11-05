@@ -3,18 +3,18 @@ import re
 
 from flask import Blueprint, render_template, redirect, current_app, request, session
 from werkzeug.utils import secure_filename
-from advanced_flask.products.initialize import product_list
-from advanced_flask.products.form import AddForm
+from products.initialize import product_list
+from products.form import AddForm
 
 prod = Blueprint('products', __name__, template_folder='templates', static_folder='static_pr')
 
 
-@prod.route('/products')
+@prod.route('/product')
 def get_prod_list():
     if request.query_string:
         #  get the name of parameter from query string
         key = re.match('^(.+)=', request.query_string.decode('utf-8')).group(1)
-        value = request.args.get(key)
+        value = request.args.get(key)[1:-1] # slice to delete quotes
         data = [pr for pr in product_list if pr[key] == value]
         return render_template('all_products.html', data=data, sess=session)
     return render_template('all_products.html', data=product_list, sess=session)
@@ -44,5 +44,5 @@ def add_prod_form():
             'price': str(add_form.price_input.data)
         }
         product_list.append(data)
-        return redirect('/products')
+        return redirect('/product')
     return render_template("add_product.html", form=add_form)
