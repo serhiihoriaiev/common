@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Supermarket list</title>{% endblock %}
+
+{% block styles %}
+    .main-link{
+        margin-left: 3%;
+    }
+
+    footer {
+      clear:both;
+    }
+
+    #wrap {
+        min-height: 60%;
+    }
+{% endblock %}
+
+{% block info %}
+    <h1 class="main-header">List of all supermarkets</h1><br>
+    <ul>
+    {% for supermarket in data %}
+        {% if session[supermarket['name']] %}
+            <li><p style="margin-left: 3%;">{{supermarket['name']}}</p></li>
+        {% else %}
+        <li><a class="main-link" href="{{url_for('supermarkets.get_supermarket', sup_id=supermarket['id'])}}">{{supermarket['name']}}</a><br></li>
+        {% endif %}
+    {% endfor %}
+    </ul><br>
+    <div style="text-align: center;" ><a href="{{url_for('supermarkets.add_sup_form')}}">Add new supermarket</a></div>
+{% endblock %}
