@@ -1,5 +1,7 @@
 # **Flask REST Homework**
 
+###### Import insomnia file to have all the required queries
+
 Use '/rooms', '/tenants' or '/staff' for full info on respective topic. 
 Here's some examples of other queries.
 
