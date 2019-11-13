@@ -22,7 +22,7 @@ class RoomsRes(Resource):
         # get info by status
         if request.args.get('status'):
             data = [r for r in rooms_lst if r.status == request.args.get('status')]
-            return marshal(data[0], r_struct) if len(data) > 0 else None
+            return marshal(data, r_struct) if len(data) > 0 else None
         return marshal(rooms_lst, r_struct)
 
     @marshal_with(r_struct)
