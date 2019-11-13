@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Add supermarket</title>{% endblock %}
+
+{% block styles %}
+    #lvl2{
+        font-weight: bold;
+        font: 16pt sans-serif;
+        margin-left: 5%;
+    }
+<!--    .forms{-->
+<!--        margin-left: 5%;-->
+<!--    }-->
+{% endblock %}
+
+{% block info %}
+    <h1 class="main-header">Add a new supermarket</h1><br>
+    <form action="{{url_for('supermarkets.add_sup_form')}}" method="post" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <p id="lvl2" style="margin-left: 5%;">Please enter all the fields:</p>
+        <div style="margin-left: 5%;">
+            Name: <div class="forms">{{form.name_input}}</div><br>
+            Location: <div class="forms">{{form.location_input}}</div><br>
+            Upload image: <div class="forms">{{form.image_input}}</div>
+        </div><br>
+        <p style="margin-left: 5%;">
+            <input type="submit" value="Add supermarket">
+        </p>
+    </form>
+{% endblock %}

@@ -1,0 +1,2 @@
+CSRF_ENABLED = True
+SECRET_KEY = 'ef32rt3'

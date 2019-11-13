@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    .main-link{
+        margin-left: 3%;
+    }
+
+    footer {
+      clear:both;
+    }
+
+    #wrap {
+        min-height: 60%;
+    }
+{% endblock %}
+
+{% block info %}
+    <h1 class="main-header">Advanced Flask Homework</h1><br>
+    <a class="main-link" href="{{url_for('products.get_prod_list')}}">Products</a><br>
+    <a class="main-link" href="{{url_for('supermarkets.get_sup_list')}}">Supermarkets</a><br><br>
+    <a class="main-link" href="{{url_for('restart_session')}}">Restart session</a>
+{% endblock %}
