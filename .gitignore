@@ -1,9 +1,5 @@
 hw/
 .vscode/settings.json
-git/__pycache__/homework.cpython-36.pyc
-git/__pycache__/
-relational_database/__pycache__/
-relational_database/fixtures/__pycache__/
 .vscode/launch.json
 relational_database/db_utils.py
 relational_database/init_database.py
@@ -11,12 +7,7 @@ hw_workspace.code-workspace
 relational_database/tests.py
 relational_database/proto.py
 .idea/
-python_functionality/__pycache__/
 python_functionality/proto.py
-oop/__pycache__/
 tests_practice/.idea
-flask_lesson_intro/__pycache__/
-advanced_flask/supermarkets/__pycache__/
-advanced_flask/products/__pycache__/
-advanced_flask/__pycache__/
+__pycache__/
 
