@@ -7,8 +7,8 @@ class Tenant(db.Model):
     age = db.Column(db.Integer)
     sex = db.Column(db.String)
     addr_id = db.Column(db.ForeignKey('address.addr_id'), default=None)
-    room_num = db.Column(db.Integer)
-    # rooms = db.relationship('Room', backref='tenant')
+    # room_num = db.Column(db.Integer)
+    rooms = db.relationship('Room', backref='tenant')
 
 
 class Address(db.Model):

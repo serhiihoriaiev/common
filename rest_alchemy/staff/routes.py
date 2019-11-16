@@ -4,6 +4,7 @@ from flask import request
 from flask_restful import Resource, marshal
 
 from db import db
+from models.room_model import Room
 from models.staff_model import Staff
 from staff.structure import staff_struct
 
@@ -67,3 +68,17 @@ class StaffRes(Resource):
         else:
             return "Provide pass_id!"
 
+class StaffRoomsRes(Resource):
+    def post(self):
+        '''
+        Add a room to staff
+        :return:
+        '''
+        data = json.loads(request.data)
+        if data['st_id'] and data['room_num']:
+            staff = db.session.query(Staff).get(data['st_id'])
+            room = db.session.query(Room).get(data['room_num'])
+            staff.rooms.append(room)
+            db.session.commit()
+            return f'Room {room.number} added to {staff.name}'
+        return 'Invalid POST body'
