@@ -18,10 +18,10 @@ class RoomsRes(Resource):
         '''
         if request.args.get('number'):
             data = db.session.query(Room).filter(Room.number == request.args.get('number')).first()
-            return marshal(data, r_struct) if data else None
+            return marshal(data, r_struct) if data else "No such room!"
         if request.args.get('status'):
             data = db.session.query(Room).filter(Room.status == request.args.get('status')).all()
-            return marshal(data, r_struct) if data else None
+            return marshal(data, r_struct) if data else "No such room!"
         elif not request.args:
             data = db.session.query(Room).all()
             return marshal(data, r_struct)

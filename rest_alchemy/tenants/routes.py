@@ -17,7 +17,7 @@ class TenantsRes(Resource):
         '''
         if request.args.get('pass_id'):
             data = db.session.query(Tenant).filter(Tenant.pass_id == request.args.get('pass_id')).first()
-            return marshal(data, ten_struct)
+            return marshal(data, ten_struct) if data else "No such tenant!"
         elif not request.args:
             data = db.session.query(Tenant).all()
             return marshal(data, ten_struct)
@@ -38,6 +38,10 @@ class TenantsRes(Resource):
         return "Tenant added"
 
     def delete(self):
+        '''
+        Delete tenant by pass_id
+        :return:
+        '''
         if request.args.get('pass_id'):
             data = db.session.query(Tenant).get(request.args.get('pass_id'))
             if data:
@@ -48,6 +52,10 @@ class TenantsRes(Resource):
         return "No pass_id provided"
 
     def patch(self):
+        '''
+        Update an existing tenant info.
+        :return:
+        '''
         data = json.loads(request.data)
         ten = db.session.query(Tenant).filter(Tenant.pass_id == data['pass_id']) if 'pass_id' in data.keys() else None
         if ten and ten.first():
