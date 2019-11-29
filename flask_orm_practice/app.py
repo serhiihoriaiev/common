@@ -12,10 +12,9 @@ from api.diary import diary_blueprint
 def create_app(env="DEFAULT"):
     app = Flask(__name__)
     app.config.from_object(get_config(env))
-
-    db.init(app=app)
-    db.create_all()
-    migrate.init(app, db)
+    db.init_app(app)
+    db.create_all(app=app)
+    migrate.init_app(app, db)
 
     app.register_blueprint(school_blueprint)
     app.register_blueprint(student_blueprint)
